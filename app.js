@@ -131,7 +131,6 @@ function draftPlayers() {
   drawTeamOne()
   drawTeamTwo()
 }
-
 function drawTeamOne() {
   let teamOneEmojis = ''
   const teamOnePlayers = players.filter(player => player.teamNumber == 1)
@@ -145,6 +144,26 @@ function drawTeamTwo() {
   teamTwoPlayers.forEach(player => teamTwoEmojis += player.emoji)
   const teamTwoElement = document.getElementById('teamTwoRoster')
   teamTwoElement.innerText = teamTwoEmojis
+}
+
+function betTeamOne(betAmount) {
+  const teamOnePlayers = players.filter(player => player.teamNumber == 1)
+  const teamTwoPlayers = players.filter(player => player.teamNumber == 2)
+
+  let teamOneTotalSkill = 0
+  let teamTwoTotalSkill = 0
+
+  teamOnePlayers.forEach(player => teamOneTotalSkill += player.skill)
+  teamTwoPlayers.forEach(player => teamTwoTotalSkill += player.skill)
+
+  if (teamOneTotalSkill > teamTwoTotalSkill) {
+    bank += betAmount
+  }
+  else if (teamTwoTotalSkill > teamOneTotalSkill) {
+    bank += betAmount
+  }
+
+  draftPlayers()
 }
 
 draftPlayers()
