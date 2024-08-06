@@ -129,6 +129,7 @@ function draftPlayers() {
     player.teamNumber = randomTeamNumber
   })
   drawTeamOne()
+  drawTeamTwo()
 }
 
 function drawTeamOne() {
@@ -137,6 +138,13 @@ function drawTeamOne() {
   teamOnePlayers.forEach(player => teamOneEmojis += player.emoji)
   const teamOneElement = document.getElementById('teamOneRoster')
   teamOneElement.innerText = teamOneEmojis
+}
+function drawTeamTwo() {
+  let teamTwoEmojis = ''
+  const teamTwoPlayers = players.filter(player => player.teamNumber == 2)
+  teamTwoPlayers.forEach(player => teamTwoEmojis += player.emoji)
+  const teamTwoElement = document.getElementById('teamTwoRoster')
+  teamTwoElement.innerText = teamTwoEmojis
 }
 
 draftPlayers()
