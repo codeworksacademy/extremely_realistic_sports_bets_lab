@@ -1,0 +1,51 @@
+:root {
+  --edgy-red: #FF1B6D;
+  --pink-glory: #DB4BFF;
+  --blue-bravery: #4BC9FF;
+  --money-talks: #B5FF88;
+}
+
+* {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-image: url(https://plus.unsplash.com/premium_photo-1675868073397-2ba2a319b598?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+body>* {
+  background-color: #4bc9ff45;
+}
+
+header {
+  padding: .5rem;
+  color: var(--edgy-red);
+  border-bottom: 1rem solid var(--edgy-red);
+}
+
+main {
+  flex-grow: 1;
+}
+
+.bank {
+  width: 20dvw;
+}
+
+.bank div {
+  background-color: var(--money-talks);
+}
+
+.pink-button {
+  background-color: var(--pink-glory);
+  border-radius: 15px;
+}
+
+.blue-button {
+  background-color: var(--blue-bravery);
+  border-radius: 15px;
+}
