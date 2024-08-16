@@ -178,10 +178,7 @@ function betTeamOne(betAmount) {
 }
 
 function betTeamTwo(betAmount) {
-  if (betAmount > bank) {
-    window.alert(`You do not have the funds to bet $${betAmount}`)
-    return
-  }
+
 
   const teamOnePlayers = players.filter(player => player.teamNumber == 1)
   const teamTwoPlayers = players.filter(player => player.teamNumber == 2)
@@ -203,7 +200,50 @@ function betTeamTwo(betAmount) {
   drawBank()
 }
 
+function betTeam(teamNumber, betAmount) {
+  if (betAmount > bank) {
+    window.alert(`You do not have the funds to bet $${betAmount}`)
+    return
+  }
 
+  let yourTeamScore = 0
+  let opposingTeamScore = 0
+
+  players.forEach(player => {
+    if (player.teamNumber == teamNumber) {
+      yourTeamScore += player.skill
+    }
+    else {
+      opposingTeamScore += player.skill
+    }
+  })
+
+  if (yourTeamScore > opposingTeamScore) {
+    bank += betAmount
+  }
+  else if (opposingTeamScore > yourTeamScore) {
+    bank -= betAmount
+  }
+
+  checkIfBroke()
+  draftPlayers()
+  drawBank()
+}
+
+function checkIfBroke() {
+  if (bank > 0) {
+    return
+  }
+
+  const wantsToPlayAgain = window.confirm("Game over! You have no more money! Would you like to play again?")
+
+  if (wantsToPlayAgain == true) {
+    bank = 100
+  }
+  else {
+    window.close()
+  }
+}
 
 drawBank()
 draftPlayers()
