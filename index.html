@@ -25,7 +25,9 @@
           <div class="bank m-auto">
             <p class="fs-3 fw-bold">bank</p>
             <div class="rounded-pill p-3">
-              <p class="text-end fs-4 mb-0">$100</p>
+              <p class="text-end fs-4 mb-0">
+                <span id="bank"></span>
+              </p>
             </div>
           </div>
         </div>
@@ -41,13 +43,13 @@
               <button onclick="betTeamOne(5)" class="pink-button fs-2 mb-1">
                 Bet 5
               </button>
-              <button class="pink-button fs-2 mb-1">
+              <button onclick="betTeamOne(25)" class="pink-button fs-2 mb-1">
                 Bet 25
               </button>
-              <button class="pink-button fs-2 mb-1">
+              <button onclick="betTeamOne(100)" class="pink-button fs-2 mb-1">
                 Bet 100
               </button>
-              <button class="pink-button fs-2 mb-1">
+              <button onclick="betTeamOne(bank)" class="pink-button fs-2 mb-1">
                 Bet it all
               </button>
             </div>
@@ -60,16 +62,16 @@
               <p id="teamTwoRoster" class="mb-0 fs-1"></p>
             </div>
             <div class="text-center mt-3">
-              <button class="blue-button fs-2 mb-1">
+              <button onclick="betTeamTwo(5)" class="blue-button fs-2 mb-1">
                 Bet 5
               </button>
-              <button class="blue-button fs-2 mb-1">
+              <button onclick="betTeamTwo(25)" class="blue-button fs-2 mb-1">
                 Bet 25
               </button>
-              <button class="blue-button fs-2 mb-1">
+              <button onclick="betTeamTwo(100)" class="blue-button fs-2 mb-1">
                 Bet 100
               </button>
-              <button class="blue-button fs-2 mb-1">
+              <button onclick="betTeamTwo(bank)" class="blue-button fs-2 mb-1">
                 Bet it all
               </button>
             </div>

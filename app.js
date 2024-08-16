@@ -146,7 +146,17 @@ function drawTeamTwo() {
   teamTwoElement.innerText = teamTwoEmojis
 }
 
+function drawBank() {
+  const bankElem = document.getElementById('bank')
+  bankElem.innerText = `$${bank}`
+}
+
 function betTeamOne(betAmount) {
+  if (betAmount > bank) {
+    window.alert(`You do not have the funds to bet $${betAmount}`)
+    return
+  }
+
   const teamOnePlayers = players.filter(player => player.teamNumber == 1)
   const teamTwoPlayers = players.filter(player => player.teamNumber == 2)
 
@@ -160,10 +170,40 @@ function betTeamOne(betAmount) {
     bank += betAmount
   }
   else if (teamTwoTotalSkill > teamOneTotalSkill) {
+    bank -= betAmount
+  }
+
+  draftPlayers()
+  drawBank()
+}
+
+function betTeamTwo(betAmount) {
+  if (betAmount > bank) {
+    window.alert(`You do not have the funds to bet $${betAmount}`)
+    return
+  }
+
+  const teamOnePlayers = players.filter(player => player.teamNumber == 1)
+  const teamTwoPlayers = players.filter(player => player.teamNumber == 2)
+
+  let teamOneTotalSkill = 0
+  let teamTwoTotalSkill = 0
+
+  teamOnePlayers.forEach(player => teamOneTotalSkill += player.skill)
+  teamTwoPlayers.forEach(player => teamTwoTotalSkill += player.skill)
+
+  if (teamOneTotalSkill > teamTwoTotalSkill) {
+    bank -= betAmount
+  }
+  else if (teamTwoTotalSkill > teamOneTotalSkill) {
     bank += betAmount
   }
 
   draftPlayers()
+  drawBank()
 }
 
+
+
+drawBank()
 draftPlayers()
