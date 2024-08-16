@@ -33,7 +33,7 @@ main {
 }
 
 .bank {
-  width: 20dvw;
+  width: fit-content;
 }
 
 .bank div {
@@ -48,4 +48,9 @@ main {
 .blue-button {
   background-color: var(--blue-bravery);
   border-radius: 15px;
+}
+
+#bank {
+  min-width: 20vw;
+  display: inline-block;
 }
